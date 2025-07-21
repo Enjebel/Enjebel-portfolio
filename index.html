@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Enjebel's Portfolio</title>
+  <link rel="icon" href="images/enjel.jpg" type="image" />
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" />
+</head>
+<body data-theme="light">
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="container navbar-container">
+      <a href="#" class="brand">My Portfolio</a>
+      <button class="hamburger" id="hamburgerBtn" aria-label="Toggle navigation">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#about">About</a></li>
+        <li><a href="#projects">Portfolio</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+  <section class="hero">
+    <div class="carousel-wrapper">
+      <div class="carousel-track">
+        <!-- 4 original slides -->
+        <div class="carousel-slide">
+          <h1>I'm Enjebel</h1>
+          <p>Frontend developer crafting modern interfaces</p>
+        </div>
+        <div class="carousel-slide">
+          <h1>Web & Mobile</h1>
+          <p>Responsive apps built with clean code</p>
+        </div>
+        <div class="carousel-slide">
+          <h1>Creative Design</h1>
+          <p>User experiences that leave a mark</p>
+        </div>
+        <div class="carousel-slide">
+          <h1>Let’s Collaborate</h1>
+          <p>Available for freelance or full-time</p>
+        </div>
+  
+        <!-- Duplicate slides for infinite loop -->
+        <div class="carousel-slide">
+          <h1>I'm Enjebel</h1>
+          <p>Frontend developer crafting modern interfaces</p>
+        </div>
+        <div class="carousel-slide">
+          <h1>Web & Mobile</h1>
+          <p>Responsive apps built with clean code</p>
+        </div>
+        <div class="carousel-slide">
+          <h1>Creative Design</h1>
+          <p>User experiences that leave a mark</p>
+        </div>
+        <div class="carousel-slide">
+          <h1>Let’s Collaborate</h1>
+          <p>Available for freelance or full-time</p>
+        </div>
+      </div>
+    </div>
+  
+    <div class="hero-buttons">
+      <a href="#contact" class="btn">Contact Me</a>
+      <a href="ENJEBE'S_CV.pdf" class="btn" download>Download CV</a>
+    </div>
+  </section>
+  
+
+
+  <!-- About Section -->
+  <section id="about" class="section">
+    <div class="container about-container">
+      <div class="about-image">
+        <img src="images/enjel.jpg" alt="My Photo" />
+      </div>
+      <div class="about-content">
+        <h2>About Me</h2>
+        <p>
+          Hi, I'm Ntang Enjebel. I'm a versatile professional with expertise in software development,
+          graphic design, marketing strategy, and cybersecurity. I craft innovative solutions that
+          showcase my technical skills and fuel my creativity. Let's collaborate to create something amazing!
+        </p>
+        <div class="counters">
+          <div class="counter-box">
+            <h3 class="counter" data-target="2">0</h3>
+            <p>Years Experience</p>
+          </div>
+          <div class="counter-box">
+            <h3 class="counter" data-target="5">0</h3>
+            <p>Projects Completed</p>
+          </div>
+          <div class="counter-box">
+            <h3 class="counter" data-target="4">0</h3>
+            <p>Tools Mastered</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <h2>My Projects</h2>
+
+    <div class="filters" id="filters">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="web">Web</button>
+      <button class="filter-btn" data-filter="marketing">Marketing</button>
+      <button class="filter-btn" data-filter="design">Design</button>
+    </div>
+
+    <div class="projects-grid" id="projectGrid">
+      <div class="project-card" data-category="web">
+        <img src="images/portfolio.png" alt="Web Project 1">
+        <h3>Responsive Portfolio</h3>
+        <p>Built with HTML, CSS & JavaScript</p>
+      </div>
+
+      <div class="project-card" data-category="web">
+        <img src="images/vildash.jpg" alt="Web Project 2">
+        <h3>Vildash IT & Network company Ltd website</h3>
+        <p>Vildash Network professional website built with HTML, CSS, JS & frameworks (react.js and others).</p>
+      </div>
+
+      <div class="project-card" data-category="marketing">
+        <img src="images/marketing-project.png" alt="Marketing Project">
+        <h3>Instagram & Facebook Ad Campaign</h3>
+        <p>A/B tested ad creatives that led to a 35% increase in user signups.</p>
+      </div>
+
+      <div class="project-card" data-category="design">
+        <img src="images/App UI.png" alt="Design Project">
+        <h3>Mobile App UI</h3>
+        <p>Created in Figma for a finance app</p>
+      </div>
+
+      <div class="project-card" data-category="design">
+        <img src="images/graphics.jpg" alt="Design Project 2">
+        <h3>Graphic Design</h3>
+        <p>Complete brand design with logo, color system</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services" class="section">
+    <div class="container services-container">
+      <h2 class="section-title">Services Offered</h2>
+      <div class="services-list">
+        <div class="service-item">
+          <i class="bi bi-laptop"></i>
+          <h5>Web Development</h5>
+        </div>
+        <div class="service-item">
+          <i class="bi bi-megaphone"></i>
+          <h5>Digital Campaign Strategy</h5>
+        </div>
+        <div class="service-item">
+          <i class="bi bi-palette"></i>
+          <h5>Branding & Graphic Design</h5>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="section bg-light">
+    <div class="container contact-container">
+      <h2 class="section-title">Contact Me</h2>
+      <form action="https://formspree.io/f/xyzpgbwd" method="POST" class="contact-form">
+        <input type="text" name="name" placeholder="Your Name" required />
+        <input type="email" name="email" placeholder="Your Email" required />
+        <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+        <button type="submit" class="btn btn-primary">Send Message</button>
+      </form>
+      <p id="form-success" class="form-success-message">Message sent successfully! 🎉</p>
+
+    </div>
+  </section>
+
+  <!-- CHATBOT TOGGLE BUTTON -->
+<button id="chatbot-toggle" title="Chat with me!" aria-label="Toggle Chatbot">
+  <i class="bx bx-message-square-dots" style="font-size: 2rem;"></i>
+</button>
+
+<!-- CHATBOT WINDOW -->
+<div class="chatbot hidden" id="chatbot-box" role="dialog" aria-label="Chatbot">
+  <div class="chat-log" id="chat-log">
+    <p><strong>Bot:</strong> Hi! Ask me anything about my work or availability.</p>
+  </div>
+  <input
+    type="text"
+    id="chat-input"
+    placeholder="Type your question..."
+    aria-label="Chat input"
+    autocomplete="off"
+  />
+</div>
+
+
+<!-- Load Boxicons (required for the icon) -->
+<link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+
+
+
+<!-- FOOTER -->
+<footer>
+  <p>Connect with me</p>
+  <div class="socials">
+    <a href="https://www.facebook.com/Enjebel10" target="_blank" aria-label="Facebook"><i class="bx bxl-facebook"></i></a>
+    <a href="https://linkedin.com/in/Enjebel1 Ntang" target="_blank" aria-label="LinkedIn"><i class="bx bxl-linkedin"></i></a>
+    <a href="https://github.com/Enjebel" target="_blank" aria-label="GitHub"><i class="bx bxl-github"></i></a>
+    <a href="https://wa.me/237651858080" target="_blank" aria-label="WhatsApp"><i class="bx bxl-whatsapp"></i></a>
+    <a href="mailto:enjebeln@gmail.com" aria-label="Email"><i class="bx bx-envelope"></i></a>
+  </div>
+
+  <iframe
+    src="https://www.google.com/maps?q=Bonaberi,+Douala,+Cameroon&output=embed"
+    allowfullscreen=""
+    loading="lazy"
+    referrerpolicy="no-referrer-when-downgrade"
+    class="map"
+  ></iframe>
+
+  <p>&copy; 2025 Enjebel</p>
+</footer>
+<script src="script.js"></script>
+</body>
+</html>
