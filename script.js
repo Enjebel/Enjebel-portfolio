@@ -10,161 +10,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-  hamburger.addEventListener('click', () => {
+  if (hamburger && navLinks) {
 
-    navLinks.classList.toggle('open');
+    hamburger.addEventListener('click', () => {
 
-  });
-
-
-
-  // Carousel logic
-
-  const slides = document.querySelectorAll('.carousel-item');
-
-  const prevBtn = document.querySelector('.carousel-control.prev');
-
-  const nextBtn = document.querySelector('.carousel-control.next');
-
-  let currentSlide = 0;
-
-  let slideInterval;
-
-
-
-  function showSlide(index) {
-
-    slides.forEach((slide, i) => {
-
-      slide.classList.toggle('active', i === index);
+      navLinks.classList.toggle('open');
 
     });
 
-    currentSlide = index;
-
   }
-
-
-
-  function nextSlide() {
-
-    let nextIndex = (currentSlide + 1) % slides.length;
-
-    showSlide(nextIndex);
-
-  }
-
-
-
-  function prevSlideFunc() {
-
-    let prevIndex = (currentSlide - 1 + slides.length) % slides.length;
-
-    showSlide(prevIndex);
-
-  }
-
-
-
-  nextBtn.addEventListener('click', () => {
-
-    nextSlide();
-
-    resetSlideInterval();
-
-  });
-
-
-
-  prevBtn.addEventListener('click', () => {
-
-    prevSlideFunc();
-
-    resetSlideInterval();
-
-  });
-
-
-
-  function startSlideInterval() {
-
-    slideInterval = setInterval(nextSlide, 7000);
-
-  }
-
-
-
-  function resetSlideInterval() {
-
-    clearInterval(slideInterval);
-
-    startSlideInterval();
-
-  }
-
-
-
-  showSlide(0);
-
-  startSlideInterval();
-
-
-
-  document.addEventListener("DOMContentLoaded", () => {
-
- 
-
-  // Google Maps initialization
-
-  function initMap() {
-
-    const location = { lat: 40.7128, lng: -74.0060 }; // New York City as example
-
-    const map = new google.maps.Map(document.getElementById('map'), {
-
-      zoom: 12,
-
-      center: location,
-
-    });
-
-    const marker = new google.maps.Marker({
-
-      position: location,
-
-      map: map,
-
-    });
-
-  }
-
-
-
-  // Load Google Maps script and initialize map
-
-  function loadGoogleMaps() {
-
-    if (document.getElementById('google-maps-script')) return;
-
-    const script = document.createElement('script');
-
-    script.id = 'google-maps-script';
-
-    script.src = `https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&callback=initMap`;
-
-    script.async = true;
-
-    window.initMap = initMap;
-
-    document.body.appendChild(script);
-
-  }
-
-
-
-  loadGoogleMaps();
-
-});
 
 });
 
@@ -448,13 +302,13 @@ function getBotReply(msg) {
 
   if (q.includes('what type of projects') || q.includes('projects have you worked')) {
 
-    return "I've worked on various projects, including web development, mobile apps, and software solutions.";
+    return "I've worked on responsive websites, backend-supported web apps, business landing pages, portfolio sites, UI concepts, and digital marketing projects.";
 
   }
 
   if (q.includes('languages') || q.includes('proficient in')) {
 
-    return "I'm proficient in languages like JavaScript, Python, and HTML/CSS.";
+    return "I'm proficient in HTML, CSS, JavaScript, Python, and backend development workflows.";
 
   }
 
@@ -480,19 +334,19 @@ function getBotReply(msg) {
 
   // Existing Q&A
 
-  if (q.includes('service')) return 'I offer web/mobile development and UI/UX design services.';
+  if (q.includes('service')) return 'I offer frontend development, backend development, web/mobile UI, and UI/UX design services.';
 
-  if (q.includes('tools') || q.includes('tech') || q.includes('technology')) return 'I use HTML, CSS, JavaScript, React, Figma, and Git.';
+  if (q.includes('tools') || q.includes('tech') || q.includes('technology')) return 'I use HTML, CSS, JavaScript, React, Python, backend tools, Figma, and Git.';
 
   if (q.includes('contact') || q.includes('reach')) return 'You can contact me through the contact form or via email.';
 
-  if (q.includes('experience')) return 'I have over 4 years of experience in frontend development.';
+  if (q.includes('experience')) return 'I have 2+ years of experience in frontend development, backend development, and digital design.';
 
-  if (q.includes('hire') || q.includes('available') || q.includes('freelance')) return 'Yes, I’m available for freelance and full-time opportunities.';
+  if (q.includes('hire') || q.includes('available') || q.includes('freelance')) return "Yes, I'm available for freelance and full-time opportunities.";
 
 
 
-  return "I'm currently away. Please leave a message via the contact form and I’ll get back to you!";
+  return "I'm currently away. Please leave a message via the contact form and I'll get back to you!";
 
 }
 

@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="320" height="96" viewBox="0 0 320 96" role="img" aria-labelledby="title desc">
+  <title id="title">Ntang Enjebel logo</title>
+  <desc id="desc">A professional monogram logo using the initials NE with the name Ntang Enjebel.</desc>
+  <defs>
+    <linearGradient id="markGradient" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0d6efd"/>
+      <stop offset="0.58" stop-color="#0a2463"/>
+      <stop offset="1" stop-color="#f6b73c"/>
+    </linearGradient>
+  </defs>
+  <rect width="320" height="96" fill="none"/>
+  <g transform="translate(8 8)">
+    <rect width="80" height="80" rx="18" fill="url(#markGradient)"/>
+    <path d="M21 58V22h9.2l19.6 22.8V22H60v36h-9.2L31.2 35.2V58H21Z" fill="#fff"/>
+    <path d="M44 60V26h25v8.4H54.2v4.8h12.9v8H54.2v4.4H70V60H44Z" fill="#f6b73c"/>
+  </g>
+  <g fill="#ffffff" transform="translate(106 27)">
+    <text x="0" y="23" font-family="Segoe UI, Arial, sans-serif" font-size="24" font-weight="800" letter-spacing="0">Ntang Enjebel</text>
+    <text x="1" y="50" font-family="Segoe UI, Arial, sans-serif" font-size="12" font-weight="700" letter-spacing="1.1" fill="#f6b73c">FRONTEND &amp; BACKEND DEV</text>
+  </g>
+</svg>
