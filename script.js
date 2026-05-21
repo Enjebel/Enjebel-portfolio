@@ -18,6 +18,40 @@ document.addEventListener('DOMContentLoaded', () => {
 
     });
 
+    navLinks.querySelectorAll('a').forEach(link => {
+
+      link.addEventListener('click', () => navLinks.classList.remove('open'));
+
+    });
+
+  }
+
+  const revealElements = document.querySelectorAll('.reveal');
+
+  if ('IntersectionObserver' in window && revealElements.length) {
+
+    const revealObserver = new IntersectionObserver((entries) => {
+
+      entries.forEach(entry => {
+
+        if (entry.isIntersecting) {
+
+          entry.target.classList.add('visible');
+
+          revealObserver.unobserve(entry.target);
+
+        }
+
+      });
+
+    }, { threshold: 0.18 });
+
+    revealElements.forEach(element => revealObserver.observe(element));
+
+  } else {
+
+    revealElements.forEach(element => element.classList.add('visible'));
+
   }
 
 });
@@ -140,6 +174,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const projectCards = document.querySelectorAll(".project-card");
 
+  if (!filterButtons.length || !projectCards.length) return;
+
 
 
   filterButtons.forEach(button => {
@@ -184,6 +220,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
+const whatsappNumber = '237671950721';
+const displayPhone = '671950721';
+
 //contact form
 
   document.addEventListener("DOMContentLoaded", () => {
@@ -192,55 +231,71 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const successMsg = document.getElementById("form-success");
 
+    if (!form || !successMsg) return;
 
 
-    form.addEventListener("submit", async function (e) {
+
+    const submitButton = form.querySelector('button[type="submit"]');
+
+    function showFormMessage(message, type) {
+
+      successMsg.textContent = message;
+
+      successMsg.classList.remove('is-success', 'is-error', 'is-visible');
+
+      void successMsg.offsetWidth;
+
+      successMsg.classList.add(type === 'success' ? 'is-success' : 'is-error', 'is-visible');
+
+    }
+
+    form.addEventListener("submit", function (e) {
 
       e.preventDefault();
 
       const formData = new FormData(form);
+      const name = formData.get('name')?.toString().trim();
+      const email = formData.get('email')?.toString().trim();
+      const message = formData.get('message')?.toString().trim();
 
+      if (!name || !email || !message) {
 
+        showFormMessage('Message failed to prepare. Please complete all fields and try again.', 'error');
 
-      try {
+        return;
 
-        const response = await fetch(form.action, {
+      }
 
-          method: "POST",
+      if (submitButton) {
 
-          body: formData,
+        submitButton.disabled = true;
 
-          headers: { 'Accept': 'application/json' }
+        submitButton.textContent = 'Opening WhatsApp...';
 
-        });
+      }
 
+      const whatsappMessage = `Hello Enjebel, my name is ${name}. My email is ${email}. ${message}`;
+      const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
 
+      const whatsappWindow = window.open(whatsappUrl, '_blank', 'noopener');
 
-        if (response.ok) {
+      if (whatsappWindow) {
 
-          form.reset();
+        form.reset();
 
-          successMsg.style.display = "block";
+        showFormMessage('WhatsApp opened successfully. Please tap Send there to deliver your message.', 'success');
 
+      } else {
 
+        showFormMessage(`WhatsApp could not open automatically. Please message me directly on WhatsApp: ${displayPhone}.`, 'error');
 
-          // Hide message after 4 seconds
+      }
 
-          setTimeout(() => {
+      if (submitButton) {
 
-            successMsg.style.display = "none";
+        submitButton.disabled = false;
 
-          }, 4000);
-
-        } else {
-
-          alert("Oops! Something went wrong.");
-
-        }
-
-      } catch (error) {
-
-        alert("Error: Unable to send message.");
+        submitButton.textContent = 'Send Message';
 
       }
 
@@ -260,11 +315,15 @@ const chatbotBox = document.getElementById('chatbot-box');
 
 
 
-toggleBtn.addEventListener('click', () => {
+if (toggleBtn && chatbotBox) {
 
-  chatbotBox.classList.toggle('hidden');
+  toggleBtn.addEventListener('click', () => {
 
-});
+    chatbotBox.classList.toggle('hidden');
+
+  });
+
+}
 
 
 
@@ -295,12 +354,31 @@ function escapeHTML(text) {
 function getBotReply(msg) {
 
   const q = msg.toLowerCase();
+  const contactLine = `For anything I cannot answer here, please contact Enjebel directly on WhatsApp: ${displayPhone}.`;
 
 
 
   // Match new Q&A
 
-  if (q.includes('what type of projects') || q.includes('projects have you worked')) {
+  if (q.includes('hello') || q.includes('hi') || q.includes('hey')) {
+
+    return "Hi! I can help you learn about Enjebel's services, skills, projects, availability, CV, and contact options. What would you like to know?";
+
+  }
+
+  if (q.includes('price') || q.includes('cost') || q.includes('budget') || q.includes('quote')) {
+
+    return `Project pricing depends on the scope, pages, features, and timeline. The fastest way to get a quote is to message Enjebel on WhatsApp: ${displayPhone}.`;
+
+  }
+
+  if (q.includes('cv') || q.includes('resume')) {
+
+    return "You can download Enjebel's CV using the Download CV button in the hero section. For direct questions about experience, WhatsApp is best: " + displayPhone + ".";
+
+  }
+
+  if (q.includes('what type of projects') || q.includes('projects have you worked') || q.includes('portfolio')) {
 
     return "I've worked on responsive websites, backend-supported web apps, business landing pages, portfolio sites, UI concepts, and digital marketing projects.";
 
@@ -308,25 +386,31 @@ function getBotReply(msg) {
 
   if (q.includes('languages') || q.includes('proficient in')) {
 
-    return "I'm proficient in HTML, CSS, JavaScript, Python, and backend development workflows.";
+    return "Enjebel works with HTML5, CSS3, JavaScript, Python, SQL basics, React, API integration, Git, GitHub, Figma, Vercel, and Netlify.";
+
+  }
+
+  if (q.includes('skill') || q.includes('tools')) {
+
+    return "Enjebel's skills include frontend development, backend workflows, responsive design, API integration, Git/GitHub, Figma, deployment, SEO basics, digital strategy, and cybersecurity awareness.";
 
   }
 
   if (q.includes('problem-solving') || q.includes('how do you solve problems')) {
 
-    return "I approach problem-solving by breaking down complex issues into smaller, manageable parts, and then debugging and testing solutions.";
+    return "Enjebel approaches problems by breaking them into smaller parts, checking the user flow, debugging carefully, and testing the final solution.";
 
   }
 
   if (q.includes('motivates you to learn') || q.includes('learn new technologies')) {
 
-    return "I'm motivated by the desire to stay up-to-date with industry trends and to continuously improve my skills.";
+    return "Enjebel is motivated by building useful digital products, improving technical skill, and keeping up with modern web practices.";
 
   }
 
   if (q.includes('quality of your code') || q.includes('ensure code quality')) {
 
-    return "I ensure code quality by following best practices, testing thoroughly, and reviewing code with peers.";
+    return "Enjebel focuses on clean structure, responsive layouts, practical testing, readable code, and user-friendly behavior.";
 
   }
 
@@ -334,25 +418,27 @@ function getBotReply(msg) {
 
   // Existing Q&A
 
-  if (q.includes('service')) return 'I offer frontend development, backend development, web/mobile UI, and UI/UX design services.';
+  if (q.includes('service')) return 'Enjebel offers frontend development, backend development, web/mobile UI, branding, digital marketing strategy, and cybersecurity-aware web support.';
 
-  if (q.includes('tools') || q.includes('tech') || q.includes('technology')) return 'I use HTML, CSS, JavaScript, React, Python, backend tools, Figma, and Git.';
+  if (q.includes('tech') || q.includes('technology')) return 'Enjebel uses HTML, CSS, JavaScript, React, Python, backend tools, Figma, Git, GitHub, Vercel, and Netlify.';
 
-  if (q.includes('contact') || q.includes('reach')) return 'You can contact me through the contact form or via email.';
+  if (q.includes('contact') || q.includes('reach') || q.includes('whatsapp') || q.includes('phone') || q.includes('number')) return `You can use the contact form on this page, or contact Enjebel directly on WhatsApp: ${displayPhone}.`;
 
-  if (q.includes('experience')) return 'I have 2+ years of experience in frontend development, backend development, and digital design.';
+  if (q.includes('experience')) return 'Enjebel has 2+ years of experience across frontend development, backend development, digital design, and web-focused brand presentation.';
 
-  if (q.includes('hire') || q.includes('available') || q.includes('freelance')) return "Yes, I'm available for freelance and full-time opportunities.";
+  if (q.includes('hire') || q.includes('available') || q.includes('freelance') || q.includes('job')) return `Yes, Enjebel is available for freelance and full-time opportunities. Send project details on WhatsApp: ${displayPhone}.`;
 
 
 
-  return "I'm currently away. Please leave a message via the contact form and I'll get back to you!";
+  return `I do not have enough information to answer that confidently. ${contactLine}`;
 
 }
 
 
 
 // Chat handler
+
+if (chatInput && chatLog) {
 
 chatInput.addEventListener('keydown', function (e) {
 
@@ -389,3 +475,5 @@ chatInput.addEventListener('keydown', function (e) {
   }
 
 });
+
+}
