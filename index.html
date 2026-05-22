@@ -142,11 +142,13 @@
       </div>
       <div class="about-content">
         <h2>About Me</h2>
+        <h3 class="about-role">Full Stack Developer</h3>
         <p>
-          Hi, I'm Ntang Enjebel, a frontend and backend developer focused on building
+          Hi, I'm Ntang Enjebel, a full-stack developer focused on building
           reliable, responsive websites and practical backend systems with a strong visual finish. I combine web development,
           UI design, branding, marketing strategy, and cybersecurity awareness to deliver digital
-          experiences that look professional, work smoothly, and support real business goals.
+          experiences that look professional, work smoothly, and support real business goals. I am open to remote,
+          part-time, and full-time positions, with proven ability to work in both startup and team environments.
         </p>
         <div class="counters">
           <div class="counter-box">
@@ -158,7 +160,7 @@
             <p>Projects Completed</p>
           </div>
           <div class="counter-box">
-            <h3 class="counter" data-target="12">0</h3>
+            <h3 class="counter" data-target="31">0</h3>
             <p>Skills & Tools</p>
           </div>
         </div>
@@ -286,12 +288,10 @@
       </div>
 
       <div class="project-card" data-category="web">
-        <div class="project-webview" aria-label="Live web preview of the DTEC Web project">
-          <iframe src="https://dtec-web.vercel.app/" title="DTEC Web live project preview" loading="lazy" tabindex="-1"></iframe>
-        </div>
+        <img src="images/dtec-preview.png" alt="DTEC Web project preview">
         <div class="project-info">
           <h3>DTEC Web</h3>
-          <p>Completed business website with a live embedded preview and conversion-ready pages.</p>
+          <p>Completed business website with a clean service presentation and conversion-ready pages.</p>
           <a href="https://dtec-web.vercel.app/" target="_blank" rel="noopener" class="project-btn">Live Preview</a>
         </div>
       </div>
@@ -358,18 +358,51 @@
   <section id="contact" class="section bg-light reveal">
     <div class="container contact-container">
       <h2 class="section-title">Let's Work Together</h2>
-      <form class="contact-form">
-        <input type="text" name="name" placeholder="Your Name" required />
-        <input type="email" name="email" placeholder="Your Email" required />
-        <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
-        <button type="submit" class="btn btn-primary">Send Message</button>
-      </form>
-      <p id="form-success" class="form-success-message" aria-live="polite"></p>
+      <div class="contact-layout">
+        <div class="contact-panel contact-info-panel">
+          <h2>Contact Details</h2>
+          <p>Reach out directly for websites, backend systems, UI design, branding, or digital marketing work.</p>
+          <div class="contact-methods">
+            <a href="mailto:enjebeln@gmail.com">
+              <i class="bi bi-envelope"></i>
+              <span>enjebeln@gmail.com</span>
+            </a>
+            <div class="contact-method contact-phone">
+              <i class="bi bi-telephone"></i>
+              <span>
+                <strong>+237 671950721</strong>
+                <small>
+                  <a href="tel:+237671950721">Call</a>
+                  <a href="https://wa.me/237671950721" target="_blank" rel="noopener">WhatsApp</a>
+                </small>
+              </span>
+            </div>
+            <a href="https://www.google.com/maps?q=Bonaberi,+Douala,+Cameroon" target="_blank" rel="noopener">
+              <i class="bi bi-geo-alt"></i>
+              <span>Bonaberi, Douala, Cameroon</span>
+            </a>
+          </div>
+        </div>
+
+        <div class="contact-form-panel">
+          <form class="contact-form" action="https://formsubmit.co/ajax/enjebeln@gmail.com" method="POST">
+            <input type="hidden" name="_subject" value="New portfolio message for Ntang Enjebel" />
+            <input type="hidden" name="_template" value="table" />
+            <input type="hidden" name="_captcha" value="false" />
+            <input type="text" name="name" placeholder="Your Name" required />
+            <input type="email" name="email" placeholder="Your Email" required />
+            <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+            <button type="submit" class="btn btn-primary">Send Message</button>
+          </form>
+          <p id="form-success" class="form-success-message" aria-live="polite"></p>
+        </div>
+      </div>
     </div>
   </section>
 
-  <button id="chatbot-toggle" title="Chat with me!" aria-label="Toggle Chatbot">
+  <button type="button" id="chatbot-toggle" title="Chat with me!" aria-label="Toggle Chatbot" aria-expanded="false">
     <i class="bx bx-message-square-dots" style="font-size: 2rem;"></i>
+    <span class="chatbot-toggle-text">Chat</span>
   </button>
 
   <div class="chatbot hidden" id="chatbot-box" role="dialog" aria-label="Chatbot">

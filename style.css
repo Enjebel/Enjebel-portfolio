@@ -627,6 +627,36 @@ html {
 
 }
 
+.about-role {
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  width: fit-content;
+
+  margin: -0.25rem auto 1rem;
+
+  padding: 0.45rem 0.75rem;
+
+  border-radius: 8px;
+
+  background: var(--primary-dark);
+
+  color: #fff;
+
+  font-size: 0.95rem;
+
+  font-weight: 800;
+
+  letter-spacing: 0.04em;
+
+  text-transform: uppercase;
+
+}
+
 
 
 .about-content h2 {
@@ -1093,8 +1123,6 @@ transition: transform 0.28s ease, background-color 0.28s ease;
 
 .skill-panel:hover i {
 
-background: var(--primary);
-
 transform: translateY(-2px);
 
 }
@@ -1331,9 +1359,243 @@ text-decoration: none;
 
 .contact-container {
 
-  max-width: 700px;
+  max-width: 1100px;
 
   margin: 0 auto;
+
+}
+
+.contact-info-panel h2 {
+
+  text-align: left;
+
+}
+
+.contact-info-panel {
+
+  position: relative;
+
+  overflow: hidden;
+
+}
+
+.contact-info-panel::before,
+.contact-form-panel::before {
+
+  content: "";
+
+  position: absolute;
+
+  inset: 0 0 auto;
+
+  height: 4px;
+
+  background: linear-gradient(90deg, var(--primary-dark), var(--primary), var(--accent));
+
+  transform: scaleX(0.2);
+
+  transform-origin: left;
+
+  transition: transform 0.35s ease;
+
+}
+
+.contact-info-panel:hover::before,
+.contact-form-panel:hover::before {
+
+  transform: scaleX(1);
+
+}
+
+.contact-info-panel .contact-methods > a {
+
+  padding: 0.75rem 0;
+
+  border-bottom: 1px solid var(--border);
+
+  animation: contactFloatIn 0.6s ease both;
+
+  transition: transform 0.28s ease, color 0.28s ease;
+
+}
+
+.contact-method {
+
+  display: inline-flex;
+
+  align-items: center;
+
+  gap: 0.55rem;
+
+  padding: 0.75rem 0;
+
+  color: var(--primary-dark);
+
+  font-weight: 800;
+
+  border-bottom: 1px solid var(--border);
+
+  animation: contactFloatIn 0.6s ease both;
+
+}
+
+.contact-methods > a:hover,
+.contact-method:hover {
+
+  transform: translateX(4px);
+
+}
+
+.contact-methods > :nth-child(2) {
+
+  animation-delay: 0.08s;
+
+}
+
+.contact-methods > :nth-child(3) {
+
+  animation-delay: 0.16s;
+
+}
+
+.contact-info-panel .contact-methods > :last-child {
+
+  border-bottom: none;
+
+}
+
+.contact-info-panel .contact-methods i {
+
+  width: 36px;
+
+  height: 36px;
+
+  display: inline-grid;
+
+  place-items: center;
+
+  flex: 0 0 36px;
+
+  border-radius: 8px;
+
+  background: var(--soft);
+
+  color: var(--primary-dark);
+
+  font-size: 1.05rem;
+
+  transition: transform 0.28s ease, background-color 0.28s ease, color 0.28s ease;
+
+}
+
+.contact-method:hover i,
+.contact-methods a:hover i {
+
+  transform: translateY(-2px) scale(1.06);
+
+  background: var(--primary-dark);
+
+  color: #fff;
+
+}
+
+.contact-phone span {
+
+  display: grid;
+
+  gap: 0.3rem;
+
+}
+
+.contact-phone small {
+
+  display: flex;
+
+  flex-wrap: wrap;
+
+  gap: 0.5rem;
+
+}
+
+.contact-phone small a {
+
+  min-height: auto;
+
+  padding: 0.25rem 0.55rem !important;
+
+  border: 1px solid var(--border) !important;
+
+  border-radius: 999px;
+
+  background: var(--soft);
+
+  color: var(--primary-dark);
+
+  font-size: 0.78rem;
+
+  line-height: 1;
+
+  transition: transform 0.25s ease, background-color 0.25s ease, color 0.25s ease;
+
+}
+
+.contact-phone small a:hover {
+
+  transform: translateY(-2px);
+
+  background: var(--primary-dark);
+
+  color: #fff;
+
+}
+
+.contact-form-panel {
+
+  position: relative;
+
+  overflow: hidden;
+
+  background: var(--surface);
+
+  border: 1px solid var(--border);
+
+  border-radius: 8px;
+
+  box-shadow: var(--shadow);
+
+  padding: 1.35rem;
+
+  transition: transform 0.28s ease, box-shadow 0.28s ease, border-color 0.28s ease;
+
+}
+
+.contact-form-panel:hover {
+
+  transform: translateY(-5px);
+
+  box-shadow: 0 18px 34px rgba(23, 32, 51, 0.14);
+
+  border-color: rgba(13, 110, 253, 0.22);
+
+}
+
+@keyframes contactFloatIn {
+
+  from {
+
+    opacity: 0;
+
+    transform: translateY(10px);
+
+  }
+
+  to {
+
+    opacity: 1;
+
+    transform: translateY(0);
+
+  }
 
 }
 
@@ -1501,9 +1763,9 @@ text-decoration: none;
 
   position: fixed;
 
-  bottom: 1.5rem;
+  bottom: calc(1.5rem + env(safe-area-inset-bottom, 0px));
 
-  right: 1.5rem;
+  right: calc(1.5rem + env(safe-area-inset-right, 0px));
 
   background: var(--primary-dark);
 
@@ -1519,7 +1781,26 @@ text-decoration: none;
 
   box-shadow: 0 0 10px rgba(0,0,0,0.1);
 
-  z-index: 999;
+  z-index: 10050;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.35rem;
+  min-width: 56px;
+  min-height: 56px;
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+
+}
+
+.chatbot-toggle-text {
+
+  display: none;
+
+  font-size: 0.78rem;
+
+  font-weight: 800;
 
 }
 
@@ -1539,9 +1820,9 @@ text-decoration: none;
 
   position: fixed;
 
-  bottom: 6rem;
+  bottom: calc(6rem + env(safe-area-inset-bottom, 0px));
 
-  right: 1.5rem;
+  right: calc(1.5rem + env(safe-area-inset-right, 0px));
 
   width: 300px;
 
@@ -1561,7 +1842,7 @@ text-decoration: none;
 
   gap: 0.5rem;
 
-  z-index: 998;
+  z-index: 10040;
 
 }
 
@@ -1780,6 +2061,8 @@ footer iframe {
 
     transition: transform 0.3s ease;
 
+    z-index: 1000;
+
   }
 
 
@@ -1803,6 +2086,64 @@ footer iframe {
   .brand-logo {
 
     width: 128px;
+
+  }
+
+  #chatbot-toggle {
+
+    position: fixed !important;
+
+    display: inline-flex !important;
+
+    visibility: visible !important;
+
+    opacity: 1 !important;
+
+    right: calc(0.85rem + env(safe-area-inset-right, 0px)) !important;
+
+    bottom: calc(0.85rem + env(safe-area-inset-bottom, 0px)) !important;
+
+    min-width: 74px;
+
+    min-height: 46px;
+
+    border-radius: 999px;
+
+    padding: 0.65rem 0.8rem;
+
+    z-index: 10050 !important;
+
+    transform: none !important;
+
+    pointer-events: auto;
+
+  }
+
+  #chatbot-toggle i {
+
+    font-size: 1.35rem !important;
+
+  }
+
+  .chatbot-toggle-text {
+
+    display: inline;
+
+  }
+
+  .chatbot {
+
+    position: fixed !important;
+
+    right: calc(0.85rem + env(safe-area-inset-right, 0px)) !important;
+
+    bottom: calc(4.8rem + env(safe-area-inset-bottom, 0px)) !important;
+
+    width: min(330px, calc(100vw - 1.7rem)) !important;
+
+    max-height: 70vh;
+
+    z-index: 10040 !important;
 
   }
 

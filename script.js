@@ -223,6 +223,32 @@ document.addEventListener("DOMContentLoaded", () => {
 const whatsappNumber = '237671950721';
 const displayPhone = '671950721';
 
+document.addEventListener("DOMContentLoaded", () => {
+
+  const whatsappLinks = document.querySelectorAll('a[href*="wa.me"]');
+
+  whatsappLinks.forEach(link => {
+
+    link.addEventListener('click', event => {
+
+      event.preventDefault();
+
+      const whatsappUrl = link.href;
+
+      window.open(whatsappUrl, '_blank', 'noopener');
+
+      setTimeout(() => {
+
+        window.location.reload();
+
+      }, 900);
+
+    });
+
+  });
+
+});
+
 //contact form
 
   document.addEventListener("DOMContentLoaded", () => {
@@ -249,7 +275,7 @@ const displayPhone = '671950721';
 
     }
 
-    form.addEventListener("submit", function (e) {
+    form.addEventListener("submit", async function (e) {
 
       e.preventDefault();
 
@@ -266,36 +292,57 @@ const displayPhone = '671950721';
 
       }
 
+      const formEndpoint = form.getAttribute('action');
+
+      if (!formEndpoint) {
+
+        showFormMessage(`Email form is not connected yet. Please call or WhatsApp me directly on ${displayPhone}.`, 'error');
+
+        return;
+
+      }
+
       if (submitButton) {
 
         submitButton.disabled = true;
 
-        submitButton.textContent = 'Opening WhatsApp...';
+        submitButton.textContent = 'Sending...';
 
       }
 
-      const whatsappMessage = `Hello Enjebel, my name is ${name}. My email is ${email}. ${message}`;
-      const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`;
+      try {
 
-      const whatsappWindow = window.open(whatsappUrl, '_blank', 'noopener');
+        const response = await fetch(formEndpoint, {
+          method: 'POST',
+          body: formData,
+          headers: {
+            Accept: 'application/json'
+          }
+        });
 
-      if (whatsappWindow) {
+        if (!response.ok) {
+
+          throw new Error('Email form request failed');
+
+        }
 
         form.reset();
 
-        showFormMessage('WhatsApp opened successfully. Please tap Send there to deliver your message.', 'success');
+        showFormMessage('Message sent successfully. I will reply through email soon.', 'success');
 
-      } else {
+      } catch (error) {
 
-        showFormMessage(`WhatsApp could not open automatically. Please message me directly on WhatsApp: ${displayPhone}.`, 'error');
+        showFormMessage(`Message failed to send. Please call or WhatsApp me directly on ${displayPhone}.`, 'error');
 
-      }
+      } finally {
 
-      if (submitButton) {
+        if (submitButton) {
 
-        submitButton.disabled = false;
+          submitButton.disabled = false;
 
-        submitButton.textContent = 'Send Message';
+          submitButton.textContent = 'Send Message';
+
+        }
 
       }
 
@@ -320,6 +367,7 @@ if (toggleBtn && chatbotBox) {
   toggleBtn.addEventListener('click', () => {
 
     chatbotBox.classList.toggle('hidden');
+    toggleBtn.setAttribute('aria-expanded', String(!chatbotBox.classList.contains('hidden')));
 
   });
 
@@ -372,13 +420,49 @@ function getBotReply(msg) {
 
   }
 
+  if (q.includes('location') || q.includes('where are you') || q.includes('based')) {
+
+    return "Enjebel is based in Bonaberi, Douala, Cameroon, and can work with clients locally or remotely.";
+
+  }
+
+  if (q.includes('timeline') || q.includes('how long') || q.includes('deadline')) {
+
+    return "Timeline depends on the project size. A simple landing page can be faster, while full websites or backend features need more planning. Share details on WhatsApp for a realistic estimate.";
+
+  }
+
+  if (q.includes('payment') || q.includes('deposit') || q.includes('pay')) {
+
+    return "Payment terms depend on the project. For most freelance work, it is best to discuss scope, timeline, and deposit directly with Enjebel on WhatsApp.";
+
+  }
+
   if (q.includes('cv') || q.includes('resume')) {
 
     return "You can download Enjebel's CV using the Download CV button in the hero section. For direct questions about experience, WhatsApp is best: " + displayPhone + ".";
 
   }
 
-  if (q.includes('what type of projects') || q.includes('projects have you worked') || q.includes('portfolio')) {
+  if (q.includes('dtec')) {
+
+    return "DTEC Web is one of Enjebel's completed business website projects. You can view it from the Portfolio section using the Live Preview button.";
+
+  }
+
+  if (q.includes('vildash')) {
+
+    return "Vildash Final is an enterprise IT solutions platform project with a responsive web presence.";
+
+  }
+
+  if (q.includes('dream home') || q.includes('dreamhome')) {
+
+    return "Dream Home Lux is a luxury real estate and architecture showcase built for strong visual impact.";
+
+  }
+
+  if (q.includes('what type of projects') || q.includes('projects have you worked') || q.includes('portfolio') || q.includes('project')) {
 
     return "I've worked on responsive websites, backend-supported web apps, business landing pages, portfolio sites, UI concepts, and digital marketing projects.";
 
@@ -414,11 +498,65 @@ function getBotReply(msg) {
 
   }
 
+  if (q.includes('responsive') || q.includes('mobile friendly') || q.includes('mobile')) {
+
+    return "Yes. Enjebel builds responsive websites that work across desktop, tablet, and mobile screens.";
+
+  }
+
+  if (q.includes('seo')) {
+
+    return "Yes. Enjebel can add SEO basics such as meta tags, page titles, descriptions, sitemap, semantic content, and social preview tags.";
+
+  }
+
+  if (q.includes('hosting') || q.includes('deploy') || q.includes('deployment')) {
+
+    return "Enjebel can deploy static and frontend projects using platforms like Vercel and Netlify, depending on the project needs.";
+
+  }
+
+  if (q.includes('maintenance') || q.includes('support') || q.includes('update')) {
+
+    return "Yes. Enjebel can help with updates, content changes, small fixes, design improvements, and ongoing website maintenance.";
+
+  }
+
+  if (q.includes('backend') || q.includes('api')) {
+
+    return "Enjebel handles practical backend workflows such as form handling, API integration, data-aware features, and connecting frontend interfaces to useful logic.";
+
+  }
+
+  if (q.includes('frontend') || q.includes('front end')) {
+
+    return "Enjebel builds clean frontend interfaces with HTML, CSS, JavaScript, React, responsive layouts, and interactive behavior.";
+
+  }
+
+  if (q.includes('design') || q.includes('figma') || q.includes('ui') || q.includes('ux')) {
+
+    return "Enjebel works with UI design, Figma concepts, brand visuals, graphic design, and clean interface layouts.";
+
+  }
+
+  if (q.includes('marketing') || q.includes('ads') || q.includes('campaign')) {
+
+    return "Enjebel can support digital strategy, Meta Ads planning, campaign structure, A/B testing ideas, and performance-focused presentation.";
+
+  }
+
+  if (q.includes('email')) {
+
+    return "You can email Enjebel at enjebeln@gmail.com or use WhatsApp for a faster response: " + displayPhone + ".";
+
+  }
+
 
 
   // Existing Q&A
 
-  if (q.includes('service')) return 'Enjebel offers frontend development, backend development, web/mobile UI, branding, digital marketing strategy, and cybersecurity-aware web support.';
+  if (q.includes('service')) return 'Enjebel offers frontend development, backend development, responsive websites, web/mobile UI, branding, digital marketing strategy, SEO basics, and cybersecurity-aware web support.';
 
   if (q.includes('tech') || q.includes('technology')) return 'Enjebel uses HTML, CSS, JavaScript, React, Python, backend tools, Figma, Git, GitHub, Vercel, and Netlify.';
 
