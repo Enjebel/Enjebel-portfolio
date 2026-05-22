@@ -1,42 +1,31 @@
-# 💼 Enjebel Portfolio Website
+# Ntang Enjebel | Enjebel10 Official Portfolio
 
-A professional, fully responsive portfolio website to showcase my development skills, projects, and services. Includes a modern design, chatbot interaction, dark/light theme toggle, social links, and an embedded location map. Built with HTML, CSS, and JavaScript.
+Official portfolio website for Ntang Enjebel, also known as Enjebel10. This site is the first-hand source for my full-stack development work, completed projects, skills, services, contact details, and professional profile.
 
----
+## Live Portfolio
 
-## 🌐 Live Demo
+[View Online Portfolio](https://enjebel-portfolio.netlify.app/)
 
-🔗 [View Online Portfolio](https://your-live-site-link.com)
+## About
 
----
+Ntang Enjebel is a full-stack developer based in Bonaberi, Douala, Cameroon. I build responsive websites, practical backend systems, UI designs, branding assets, and digital marketing solutions.
 
-## ✨ Features
+## Features
 
-- ✅ **Responsive Design** – Optimized for mobile, tablet, and desktop.
-- 🖼️ **Hero Carousel** – Auto-sliding left-to-right banner with introduction.
-- 🌗 **Dark/Light Mode Toggle** – User preference stored with `localStorage`.
-- 📱 **Hamburger Navigation** – Custom mobile-friendly navbar.
-- 🛠️ **Services Section** – Displays services with emoji icons.
-- 💼 **Projects Gallery** – Horizontally aligned on desktop, stacked on mobile.
-- 💬 **Custom Chatbot** – Pop-up chatbot icon with common Q&A and fallback message.
-- 🗺️ **Google Map Embed** – Displays Bonaberi, Douala, Cameroon.
-- 📇 **Contact Form** – Easy-to-fill form with professional layout.
-- 📄 **CV Download** – Includes a button to download your PDF resume.
-- 🔗 **Social Media Icons** – Facebook, LinkedIn, GitHub, WhatsApp & Email in footer.
+- Responsive portfolio layout
+- Full-stack developer profile
+- Skills and tools section
+- Completed project gallery
+- Contact form connected to email
+- WhatsApp, phone, email, and map contact options
+- Chatbot with portfolio Q&A
+- SEO metadata, sitemap, robots.txt, and structured data
 
----
+## Technologies
 
-## 🛠️ Technologies Used
-
-| Language       | Purpose                   |
-|----------------|---------------------------|
-| HTML5          | Markup structure          |
-| CSS3           | Styling & responsiveness  |
-| JavaScript     | Interactivity & logic     |
-| Boxicons       | Icon library              |
-| Google Maps    | Location access           |
-
----
-
-## 📁 Project Structure
-
+- HTML5
+- CSS3
+- JavaScript
+- Boxicons
+- Bootstrap Icons
+- Google Maps Embed
