@@ -122,7 +122,11 @@ html {
 
   width: 142px;
 
+  max-height: 56px;
+
   height: auto;
+
+  object-fit: contain;
 
   display: block;
 
