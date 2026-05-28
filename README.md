@@ -4,7 +4,9 @@ Official website for ENJEBEL TECH, a remote-ready software development company b
 
 ## Live Portfolio
 
-[View Online Portfolio](https://enjebel-portfolio.netlify.app/)
+[View Online Portfolio](https://enjebeltech.netlify.app/)
+
+Secondary deployment: [Vercel mirror](https://enjebeltech.vercel.app/)
 
 ## About
 

@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://enjebel-portfolio.netlify.app/sitemap.xml
+Sitemap: https://enjebeltech.netlify.app/sitemap.xml
