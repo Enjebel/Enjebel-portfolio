@@ -22,11 +22,17 @@
   <meta name="twitter:image" content="https://enjebeltech.netlify.app/images/portfolio.png" />
   <meta name="theme-color" content="#0a2463" />
   <title>ENJEBEL TECH | Remote Full Stack Developer & Software Company</title>
+  <link rel="preconnect" href="https://unpkg.com" crossorigin />
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin />
   <link rel="icon" href="images/E%20TECH%20logo.png" type="image/png" />
   <link rel="apple-touch-icon" href="images/E%20TECH%20logo.png" />
   <link rel="stylesheet" href="style.css" />
-  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" />
+  <link rel="preload" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <link rel="preload" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript>
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css">
+  </noscript>
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -192,7 +198,7 @@
   <nav class="navbar">
     <div class="container navbar-container">
       <a href="#" class="brand" aria-label="ENJEBEL TECH homepage">
-        <img src="images/E%20TECH%20logo.png" alt="E TECH logo" class="brand-logo">
+        <img src="images/E%20TECH%20logo.png" alt="E TECH logo" class="brand-logo" width="1254" height="1254" decoding="async" fetchpriority="high">
         <span>ENJEBEL TECH</span>
       </a>
       <button class="hamburger" id="hamburgerBtn" aria-label="Toggle navigation">
@@ -257,7 +263,7 @@
   <section id="about" class="section reveal">
     <div class="container about-container">
       <div class="about-image">
-        <img src="images/enjel.jpg" alt="Portrait of Ntang Enjebel" />
+        <img src="images/enjel.jpg" alt="Portrait of Ntang Enjebel" decoding="async" fetchpriority="high" />
       </div>
       <div class="about-content">
         <h2>About ENJEBEL TECH</h2>
@@ -390,7 +396,7 @@
 
     <div class="projects-grid" id="projectGrid">
       <div class="project-card" data-category="web">
-        <img src="images/vildash.jpg" alt="Vildash Final website preview">
+        <img src="images/vildash.jpg" alt="Vildash Final website preview" width="616" height="1080" loading="lazy" decoding="async">
         <div class="project-info">
           <h3>Vildash Final</h3>
           <p>Enterprise IT solutions platform with a modern, responsive web presence.</p>
@@ -399,7 +405,7 @@
       </div>
 
       <div class="project-card" data-category="web">
-        <img src="images/Dreamhome.png" alt="Dream Home Lux website preview">
+        <img src="images/Dreamhome.png" alt="Dream Home Lux website preview" width="1233" height="834" loading="lazy" decoding="async">
         <div class="project-info">
           <h3>Dream Home Lux</h3>
           <p>Luxury real estate and architecture showcase built for visual impact.</p>
@@ -408,7 +414,7 @@
       </div>
 
       <div class="project-card" data-category="web">
-        <img src="images/dtec-preview.png" alt="DTEC Web project preview">
+        <img src="images/dtec-preview.png" alt="DTEC Web project preview" width="1897" height="829" loading="lazy" decoding="async">
         <div class="project-info">
           <h3>DTEC Web</h3>
           <p>Completed business website with a clean service presentation and conversion-ready pages.</p>
@@ -417,7 +423,7 @@
       </div>
 
       <div class="project-card" data-category="web">
-        <img src="images/portfolio.png" alt="Enjebel portfolio website">
+        <img src="images/portfolio.png" alt="Enjebel portfolio website" width="1005" height="721" loading="lazy" decoding="async">
         <div class="project-info">
           <h3>My Portfolio</h3>
           <p>Personal portfolio website built with HTML5, CSS, and JavaScript.</p>
@@ -426,7 +432,7 @@
       </div>
 
       <div class="project-card" data-category="marketing">
-        <img src="images/marketing-project.png" alt="Marketing campaign project">
+        <img src="images/marketing-project.png" alt="Marketing campaign project" width="1024" height="1024" loading="lazy" decoding="async">
         <div class="project-info">
           <h3>Ad Campaign</h3>
           <p>Meta Ads campaign planning, creative testing, and performance optimization.</p>
@@ -434,7 +440,7 @@
       </div>
 
       <div class="project-card" data-category="design">
-        <img src="images/graphics.jpg" alt="Graphic design brand project">
+        <img src="images/graphics.jpg" alt="Graphic design brand project" width="1080" height="1080" loading="lazy" decoding="async">
         <div class="project-info">
           <h3>Graphic Design</h3>
           <p>Complete brand identity design with logo direction and color system.</p>
@@ -442,7 +448,7 @@
       </div>
 
       <div class="project-card" data-category="design">
-        <img src="images/App UI.png" alt="Mobile app UI design">
+        <img src="images/App UI.png" alt="Mobile app UI design" width="296" height="541" loading="lazy" decoding="async">
         <div class="project-info">
           <h3>Mobile App UI</h3>
           <p>Finance app interface concept designed in Figma for clean user flows.</p>
