@@ -446,37 +446,43 @@ function getBotReply(msg) {
 
   if (q.includes('dtec')) {
 
-    return "DTEC Web is one of Enjebel's completed business website projects. You can view it from the Portfolio section using the Live Preview button.";
+    return "DTEC Architect & Academy is one of ENJEBEL TECH's completed architecture and academy website projects. You can view it from the Portfolio section using the Live Preview button.";
+
+  }
+
+  if (q.includes('dunamis') || q.includes('student portal') || q.includes('matricule') || q.includes('transcript') || q.includes('online library') || q.includes('university system')) {
+
+    return "Dunamis University is a complete university management system by ENJEBEL TECH. It handles student registration, automatic student account creation, matricule numbers, first-time passwords, semester results, transcript downloads, an online library, posts, blogs, news, activities, lecturer management, lecturer hours, timetables, and admin portals. You can open it from the Portfolio section using the Live Preview button.";
 
   }
 
   if (q.includes('vildash')) {
 
-    return "Vildash Final is an enterprise IT solutions platform project with a responsive web presence.";
+    return "Vildash Network & IT Company Ltd is a professional IT company website for network services, digital solutions, and corporate technology presentation.";
 
   }
 
   if (q.includes('dream home') || q.includes('dreamhome')) {
 
-    return "Dream Home Lux is a luxury real estate and architecture showcase built for strong visual impact.";
+    return "Dream Home Luxury is a luxury real estate and architecture showcase built for premium property presentation and strong visual impact.";
 
   }
 
   if (q.includes('what type of projects') || q.includes('projects have you worked') || q.includes('portfolio') || q.includes('project')) {
 
-    return "I've worked on responsive websites, backend-supported web apps, business landing pages, portfolio sites, UI concepts, and digital marketing projects.";
+    return "I've worked on responsive websites, backend-supported web apps, full university management systems, education platforms, business landing pages, portfolio sites, UI concepts, and digital marketing projects.";
 
   }
 
   if (q.includes('languages') || q.includes('proficient in')) {
 
-    return "Enjebel works with HTML5, CSS3, JavaScript, Python, SQL basics, React, API integration, Git, GitHub, Figma, Vercel, and Netlify.";
+    return "Enjebel works with HTML5, CSS3, JavaScript, React, Node.js, Express.js, MongoDB, Python, SQL basics, REST APIs, Postman for API testing, mobile UI, Android and iOS application planning, Git, GitHub, Figma, Vercel, and Netlify.";
 
   }
 
   if (q.includes('skill') || q.includes('tools')) {
 
-    return "Enjebel's skills include frontend development, backend workflows, responsive design, API integration, Git/GitHub, Figma, deployment, SEO basics, digital strategy, and cybersecurity awareness.";
+    return "Enjebel's skills include frontend development, Node.js, Express.js, MongoDB, REST APIs, Postman API testing, backend workflows, mobile development, responsive design, API integration, Git/GitHub, Figma, deployment, SEO services, digital strategy, and cybersecurity awareness.";
 
   }
 
@@ -524,7 +530,7 @@ function getBotReply(msg) {
 
   if (q.includes('backend') || q.includes('api')) {
 
-    return "Enjebel handles practical backend workflows such as form handling, API integration, data-aware features, and connecting frontend interfaces to useful logic.";
+    return "Enjebel handles backend development with Node.js, Express.js, MongoDB, REST APIs, form handling, data-aware features, and connecting frontend interfaces to useful logic.";
 
   }
 
@@ -556,9 +562,9 @@ function getBotReply(msg) {
 
   // Existing Q&A
 
-  if (q.includes('service')) return 'Enjebel offers frontend development, backend development, responsive websites, web/mobile UI, branding, digital marketing strategy, SEO basics, and cybersecurity-aware web support.';
+  if (q.includes('service')) return 'Enjebel offers frontend development, backend development with Node.js, Express.js and MongoDB, responsive websites, web/mobile UI, branding, digital marketing strategy, SEO services, and cybersecurity-aware web support.';
 
-  if (q.includes('tech') || q.includes('technology')) return 'Enjebel uses HTML, CSS, JavaScript, React, Python, backend tools, Figma, Git, GitHub, Vercel, and Netlify.';
+  if (q.includes('tech') || q.includes('technology')) return 'Enjebel uses HTML, CSS, JavaScript, React, Node.js, Express.js, MongoDB, Python, REST APIs, Postman, Figma, Git, GitHub, Vercel, and Netlify.';
 
   if (q.includes('contact') || q.includes('reach') || q.includes('whatsapp') || q.includes('phone') || q.includes('number')) return `You can use the contact form on this page, or contact Enjebel directly on WhatsApp: ${displayPhone}.`;
 
